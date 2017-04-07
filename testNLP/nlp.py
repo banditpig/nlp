@@ -1,9 +1,11 @@
-# import nltk
-# from nltk.classify import NaiveBayesClassifier
-from textblob.classifiers import NaiveBayesClassifier
-# from nltk.tokenize import sent_tokenize, word_tokenize
+import pickle
+import os.path
 
+from textblob.classifiers import NaiveBayesClassifier
+from textblob import TextBlob
+from random import shuffle
 # https://www.youtube.com/watch?v=IMKweOTFjXw
+# https://www.ravikiranj.net/posts/2012/code/how-build-twitter-sentiment-analyzer/
 positive = []
 negative = []
 positive_trg = []
@@ -56,10 +58,13 @@ def fill_data():
     global negative_trg
     negative_trg = negative[100:]
 
-    for words, sentiment in positive_trg + negative_trg:
-        filtered_words = [w.lower().strip('.').strip(',').strip(';').strip(';').strip(':').strip('"').strip('!').strip('?')
-                          for w in words.split() if len(w) >=4]
-        all_trg_data.append((filtered_words, sentiment))
+    global all_trg_data
+    all_trg_data = positive_trg + negative_trg
+    shuffle(all_trg_data)
+    # for words, sentiment in positive_trg + negative_trg:
+    #     filtered_words = [w.lower().strip('.').strip(',').strip(';').strip(';').strip(':').strip('"').strip('!').strip('?')
+    #                       for w in words.split() if len(w) >=4]
+    #     all_trg_data.append((filtered_words, sentiment))
 
 def get_just_words(data):
     all_words = []
@@ -79,17 +84,48 @@ def extract_features(src_doc):
 
 
 
-proc_review("negative.txt", "negReviews.txt")
-proc_review("positive.txt", "posReviews.txt")
-
-fill_data()
 # word_features = nltk.FreqDist( get_just_words(all_trg_data) ).keys()
 #
 # print (positive_trg[1])
 #
 # print (extract_features(positive_trg[1]))
 
-print (all_trg_data[1])
-classifier = NaiveBayesClassifier.train(all_trg_data[1])
 
-classifier.show_most_informative_features()
+def get_classifier(trg_set):
+
+    if (os.path.exists('my_classifier.pickle')):
+        clsfr = NaiveBayesClassifier
+        f = open('my_classifier.pickle', 'rb')
+        clsfr = pickle.load(f)
+        f.close()
+        return clsfr
+    else:
+        clsfr = NaiveBayesClassifier(trg_set)
+        f = open('my_classifier.pickle', 'wb')
+        pickle.dump(clsfr, f)
+        f.close()
+        return clsfr
+
+
+proc_review("negative.txt", "negReviews.txt")
+proc_review("positive.txt", "posReviews.txt")
+
+fill_data()
+
+# for (_, s) in all_trg_data[:100]:
+#     print (s)
+
+classifier = get_classifier(all_trg_data)
+print(classifier.classify("Their burgers are ok."))  # "pos"
+print(classifier.classify("I don't like their pizza its not good"))   # "neg"
+
+# Accuracy: 0.984
+
+# print("Accuracy: {0}".format(classifier.accuracy(all_trg_data[:250])))
+for (review, _) in negative_test:
+    print(classifier.classify(review))
+
+print ("------------------------------------------")
+
+for (review, _) in positive_test:
+    print(classifier.classify(review))

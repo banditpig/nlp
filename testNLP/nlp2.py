@@ -1,6 +1,8 @@
 from textblob.classifiers import NaiveBayesClassifier
 from textblob import TextBlob
 
+import nltk.classify.maxent
+# http://stevenloria.com/how-to-build-a-text-classification-system-with-python-and-textblob/
 train = [
     ('I love this sandwich.', 'pos'),
     ('This is an amazing place!', 'pos'),
@@ -22,11 +24,16 @@ test = [
     ("I can't believe I'm doing this.", 'neg')
 ]
 
+max_e_class = nltk.classify.maxent.MaxentClassifier.train(train, 'GIS', trace=3, encoding=None, labels=None, gaussian_prior_sigma=0, max_iter = 10)
+
 cl = NaiveBayesClassifier(train)
 
 # Classify some text
 print(cl.classify("Their burgers are amazing."))  # "pos"
 print(cl.classify("I don't like their pizza."))   # "neg"
+
+print(max_e_class.classify("Their burgers are amazing."))  # "pos"
+print(max_e_class.classify("I don't like their pizza."))   # "neg"
 
 # Classify a TextBlob
 blob = TextBlob("The beer was amazing. But the hangover was horrible. "
