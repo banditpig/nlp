@@ -4,6 +4,7 @@ import os.path
 from textblob.classifiers import NaiveBayesClassifier
 from textblob import TextBlob
 from random import shuffle
+
 # https://www.youtube.com/watch?v=IMKweOTFjXw
 # https://www.ravikiranj.net/posts/2012/code/how-build-twitter-sentiment-analyzer/
 positive = []
@@ -116,8 +117,9 @@ fill_data()
 # for (_, s) in all_trg_data[:100]:
 #     print (s)
 classifier = get_classifier(all_trg_data[:2800])
-print(classifier.classify("Their burgers are ok."))  # "pos"
-print(classifier.classify("I don't like their pizza its not good"))   # "neg"
+print (classifier.accuracy(positive_test))
+print (classifier.accuracy(negative_test))
+
 
 # Accuracy: 0.984
 
@@ -150,3 +152,7 @@ for (review, _) in positive_test:
 #
 # NEGATIVE pos 39 neg 61  2000
 # POSITIVE pos 86 neg 14
+classifier.show_informative_features(10)
+print (classifier.classify("it was not very good"))
+print (classifier.classify("not very good"))
+print (classifier.classify("rubbish"))
