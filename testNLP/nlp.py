@@ -1,5 +1,7 @@
 import pickle
 import os.path
+import nltk
+import pygal as pygal
 
 from textblob.classifiers import NaiveBayesClassifier
 from textblob import TextBlob
@@ -86,11 +88,15 @@ def extract_features(src_doc):
 
 
 
-# word_features = nltk.FreqDist( get_just_words(all_trg_data) ).keys()
 #
 # print (positive_trg[1])
 #
 # print (extract_features(positive_trg[1]))
+
+def get_classifier_probabilities(text):
+    prob_dist = classifier.prob_classify(text)
+    return prob_dist.max(), round(prob_dist.prob(POSITIVE), 2), round(prob_dist.prob(NEGATIVE), 2)
+
 
 
 def get_classifier(trg_set):
@@ -117,10 +123,10 @@ fill_data()
 # for (_, s) in all_trg_data[:100]:
 #     print (s)
 classifier = get_classifier(all_trg_data[:2800])
-print (classifier.accuracy(positive_test))
-print (classifier.accuracy(negative_test))
+# print (classifier.accuracy(positive_test))
+# print (classifier.accuracy(negative_test))
 
-
+print (get_classifier_probabilities("I purchased this for my daughter a bit before Christmas and she loves it.  It is a great item for the price and does what the bigger brand names does.  Thank you."))
 # Accuracy: 0.984
 
 # print("Accuracy: {0}".format(classifier.accuracy(all_trg_data[:250])))
@@ -153,6 +159,3 @@ for (review, _) in positive_test:
 # NEGATIVE pos 39 neg 61  2000
 # POSITIVE pos 86 neg 14
 classifier.show_informative_features(10)
-print (classifier.classify("it was not very good"))
-print (classifier.classify("not very good"))
-print (classifier.classify("rubbish"))
