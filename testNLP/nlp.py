@@ -6,163 +6,160 @@ import pygal as pygal
 from textblob.classifiers import NaiveBayesClassifier
 from textblob import TextBlob
 from random import shuffle
+class NLP:
+    # https://www.youtube.com/watch?v=IMKweOTFjXw
+    # https://www.ravikiranj.net/posts/2012/code/how-build-twitter-sentiment-analyzer/
+    positive = []
+    negative = []
+    positive_trg = []
+    negative_trg = []
+    positive_test = []
+    negative_test= []
 
-# https://www.youtube.com/watch?v=IMKweOTFjXw
-# https://www.ravikiranj.net/posts/2012/code/how-build-twitter-sentiment-analyzer/
-positive = []
-negative = []
-positive_trg = []
-negative_trg = []
-positive_test = []
-negative_test= []
+    all_trg_data = []
+    word_features = []
 
-all_trg_data = []
-word_features = []
+    POSITIVE = "POSITIVE"
+    NEGATIVE = "NEGATIVE"
 
-POSITIVE = "POSITIVE"
-NEGATIVE = "NEGATIVE"
+    def proc_review(fName, outName):
+        outfile = open(outName, "w")
 
-def proc_review(fName, outName):
-    outfile = open(outName, "w")
-
-    with open(fName, encoding = "ISO-8859-1") as f:
-        for line in f:
-            if (line.startswith("<review_text>")):
-                done = False
-                review = ""
-                while (done == False):
-                    nextLine = next(f).strip('\n\r')
-                    if (nextLine.startswith(("</review_text>"))):
-                        done = True
-                        outfile.writelines(review.strip('\n\r'))
-                        outfile.writelines('\n')
-                    else:
-                        review = review + nextLine + " "
-    outfile.close()
-
-
-def fill_data():
-    with open("posReviews.txt", "r") as f:
-        for line in f:
-            positive.append((line, POSITIVE))
-    with open("negReviews.txt", "r") as f:
-        for line in f:
-            negative.append((line, NEGATIVE))
-
-    global positive_test
-    positive_test = positive[:200]
-
-    global positive_trg
-    positive_trg = positive[200:]
-
-    global negative_test
-    negative_test = negative[:200]
-
-    global negative_trg
-    negative_trg = negative[200:]
-
-    global all_trg_data
-    # all_trg_data = positive_trg + negative_trg
-    # shuffle(all_trg_data)
-    for words, sentiment in positive_trg + negative_trg:
-        filtered_words = [w.lower().strip('.').strip(',').strip(';').strip(';').strip(':').strip('"').strip('!').strip('?')
-                          for w in words.split() if len(w) >=4]
-        all_trg_data.append((filtered_words, sentiment))
-    shuffle(all_trg_data)
-
-def get_just_words(data):
-    all_words = []
-    for(words, sentiment) in data:
-        all_words += words
-    return all_words;
+        with open(fName, encoding = "ISO-8859-1") as f:
+            for line in f:
+                if (line.startswith("<review_text>")):
+                    done = False
+                    review = ""
+                    while (done == False):
+                        nextLine = next(f).strip('\n\r')
+                        if (nextLine.startswith(("</review_text>"))):
+                            done = True
+                            outfile.writelines(review.strip('\n\r'))
+                            outfile.writelines('\n')
+                        else:
+                            review = review + nextLine + " "
+        outfile.close()
 
 
-def extract_features(src_doc):
-    document_words = set(src_doc)
-    features = {}
+    def fill_data(self):
 
-    for word in word_features:
-        features ['contains(%s)' % word] =  (word in document_words)
+        with open("posReviews.txt", "r") as f:
+            for line in f:
+                NLP.positive.append((line, NLP.POSITIVE))
+        with open("negReviews.txt", "r") as f:
+            for line in f:
+                NLP.negative.append((line, NLP.NEGATIVE))
 
-    return features
+        global positive_test
+        positive_test = NLP.positive[:200]
+
+        global positive_trg
+        positive_trg = NLP.positive[200:]
+
+        global negative_test
+        negative_test = NLP.negative[:200]
+
+        global negative_trg
+        negative_trg = NLP.negative[200:]
+
+        global all_trg_data
+        # all_trg_data = positive_trg + negative_trg
+        # shuffle(all_trg_data)
+        for words, sentiment in positive_trg + negative_trg:
+            filtered_words = [w.lower().strip('.').strip(',').strip(';').strip(';').strip(':').strip('"').strip('!').strip('?')
+                              for w in words.split() if len(w) >=4]
+            NLP.all_trg_data.append((filtered_words, sentiment))
+        shuffle(NLP.all_trg_data)
+
+    def get_just_words(data):
+        all_words = []
+        for(words, sentiment) in data:
+            all_words += words
+        return all_words;
 
 
+    def extract_features(src_doc):
+        document_words = set(src_doc)
+        features = {}
 
-#
-# print (positive_trg[1])
-#
-# print (extract_features(positive_trg[1]))
+        for word in NLP.word_features:
+            features ['contains(%s)' % word] =  (word in document_words)
 
-def get_classifier_probabilities(text):
-    prob_dist = classifier.prob_classify(text)
-    return prob_dist.max(), round(prob_dist.prob(POSITIVE), 2), round(prob_dist.prob(NEGATIVE), 2)
+        return features
 
 
 
-def get_classifier(trg_set):
 
-    if (os.path.exists('my_classifier.pickle')):
-        clsfr = NaiveBayesClassifier
-        f = open('my_classifier.pickle', 'rb')
-        clsfr = pickle.load(f)
-        f.close()
-        return clsfr
-    else:
-        clsfr = NaiveBayesClassifier(trg_set)
-        f = open('my_classifier.pickle', 'wb')
-        pickle.dump(clsfr, f)
-        f.close()
-        return clsfr
+    def get_classifier_probabilities(text):
+        prob_dist = classifier.prob_classify(text)
+        return prob_dist.max(), round(prob_dist.prob(NLP.POSITIVE), 2), round(prob_dist.prob(NLP.NEGATIVE), 2)
+
+
+    def dump_results():
+        neg = 0
+        pos = 0
+        print("Testing NEGATIVES")
+        for (review, _) in negative_test:
+            if classifier.classify(review) == NLP.POSITIVE:
+                pos = pos + 1
+            else:
+                neg = neg + 1
+
+            print(classifier.classify(review) + " pos " + str(pos) + " neg " + str(neg))
+
+        print("------------------------------------------")
+        print("Testing POSITIVES")
+
+        neg = 0
+        pos = 0
+        for (review, _) in positive_test:
+            if classifier.classify(review) == NLP.NEGATIVE:
+                neg = neg + 1
+            else:
+                pos = pos + 1
+
+            print(classifier.classify(review) + " pos " + str(pos) + " neg " + str(neg))
+    def get_classifier(trg_set):
+
+        if (os.path.exists('my_classifier.pickle')):
+            clsfr = NaiveBayesClassifier
+            f = open('my_classifier.pickle', 'rb')
+            clsfr = pickle.load(f)
+            f.close()
+            return clsfr
+        else:
+            clsfr = NaiveBayesClassifier(trg_set)
+            f = open('my_classifier.pickle', 'wb')
+            pickle.dump(clsfr, f)
+            f.close()
+            return clsfr
 
 
 # proc_review("negative.txt", "negReviews.txt")
 # proc_review("positive.txt", "posReviews.txt")
 
-fill_data()
+NLP.fill_data()
 
 # for (_, s) in all_trg_data[:100]:
 #     print (s)
-classifier = get_classifier(all_trg_data[:2800])
+classifier = NLP.get_classifier(NLP.all_trg_data[:2800])
 # print (classifier.accuracy(positive_test))
 # print (classifier.accuracy(negative_test))
 
-print (get_classifier_probabilities("I purchased this for my daughter a bit before Christmas and she loves it.  It is a great item for the price and does what the bigger brand names does.  Thank you."))
-print (get_classifier_probabilities("This was excellent, very useful. Get one!"))
+print (NLP.get_classifier_probabilities("I purchased this for my daughter a bit before Christmas and she loves it.  It is a great item for the price and does what the bigger brand names does.  Thank you."))
+print (NLP.get_classifier_probabilities("This was excellent, very useful. Get one!"))
 
-print (get_classifier_probabilities("This is awful. Dont bother, piece of rubbish"))
+print (NLP.get_classifier_probabilities("This is awful. Dont bother, piece of rubbish"))
 
-print (get_classifier_probabilities("No sure, maybe ok, could be better."))
+print (NLP.get_classifier_probabilities("No sure, maybe ok, could be better."))
+print (NLP.get_classifier_probabilities("you must be joking, this is terrible."))
 
-
-
-
+NLP.dump_results()
 
 # Accuracy: 0.984
 
 # print("Accuracy: {0}".format(classifier.accuracy(all_trg_data[:250])))
-neg = 0
-pos = 0
-print ("Testing NEGATIVES")
-for (review, _) in negative_test:
-    if classifier.classify(review) == POSITIVE:
-        pos = pos + 1
-    else:
-        neg = neg + 1
 
-    print( classifier.classify(review) + " pos "+ str(pos) + " neg " + str(neg))
-
-print ("------------------------------------------")
-print ("Testing POSITIVES")
-
-neg = 0
-pos = 0
-for (review, _) in positive_test:
-    if classifier.classify(review) == NEGATIVE:
-        neg = neg + 1
-    else:
-        pos = pos + 1
-
-    print(classifier.classify(review) + " pos " + str(pos) + " neg " + str(neg))
 # NEGATIVE pos 33 neg 67 1500
 # POSITIVE pos 79 neg 21
 #
