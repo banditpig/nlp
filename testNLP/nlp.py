@@ -127,6 +127,16 @@ classifier = get_classifier(all_trg_data[:2800])
 # print (classifier.accuracy(negative_test))
 
 print (get_classifier_probabilities("I purchased this for my daughter a bit before Christmas and she loves it.  It is a great item for the price and does what the bigger brand names does.  Thank you."))
+print (get_classifier_probabilities("This was excellent, very useful. Get one!"))
+
+print (get_classifier_probabilities("This is awful. Dont bother, piece of rubbish"))
+
+print (get_classifier_probabilities("No sure, maybe ok, could be better."))
+
+
+
+
+
 # Accuracy: 0.984
 
 # print("Accuracy: {0}".format(classifier.accuracy(all_trg_data[:250])))
