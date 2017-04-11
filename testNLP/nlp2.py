@@ -24,7 +24,8 @@ test = [
     ("I can't believe I'm doing this.", 'neg')
 ]
 
-max_e_class = nltk.classify.maxent.MaxentClassifier.train(train, 'GIS', trace=3, encoding=None, labels=None, gaussian_prior_sigma=0, max_iter = 10)
+max_e_class = nltk.classify.maxent.MaxentClassifier.train(train)
+# , 'GIS', trace=3, encoding=None, labels=None, gaussian_prior_sigma=0, max_iter = 10)
 
 cl = NaiveBayesClassifier(train)
 

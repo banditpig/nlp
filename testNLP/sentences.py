@@ -1,7 +1,7 @@
 import nltk
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk import ne_chunk, pos_tag
-text = "This is a sentence. And Mr and Mrs Smith are goingt on holiay, in France. Mr Smith has a new shirt, his wife a new hat. Are they taking the kids? Perhaps they will, or maybe not!"
+text = "This is a sentence. And Mr and Mrs Smith are going on holiay, in France. Mr Smith has a new shirt, his wife a new hat. Are they taking the kids? Perhaps they will, or maybe not!"
 
 sents = sent_tokenize(text)
 print (sents)
@@ -20,7 +20,7 @@ def get_nouns(text):
     nouns = []
     tagged = pos_tag(word_tokenize(text))
     for (wd,tag) in tagged:
-        if tag == 'NN':
+        if (tag == 'NNP' or  tag == 'NN'):
             nouns.append(wd)
 
     return nouns
