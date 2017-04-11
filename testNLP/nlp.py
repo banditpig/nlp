@@ -1,7 +1,6 @@
 import pickle
 import os.path
 import nltk
-import pygal as pygal
 
 from textblob.classifiers import NaiveBayesClassifier
 from textblob import TextBlob
@@ -41,7 +40,7 @@ class NLP:
         outfile.close()
 
 
-    def fill_data(self):
+    def fill_data():
 
         with open("posReviews.txt", "r") as f:
             for line in f:
@@ -95,7 +94,7 @@ class NLP:
         return prob_dist.max(), round(prob_dist.prob(NLP.POSITIVE), 2), round(prob_dist.prob(NLP.NEGATIVE), 2)
 
 
-    def dump_results():
+    def dump_results(self):
         neg = 0
         pos = 0
         print("Testing NEGATIVES")
@@ -135,6 +134,13 @@ class NLP:
             return clsfr
 
 
+    def get_sentiment_file_of_reviews( fname):
+        with open(fname, "r") as f:
+            for line in f:
+                print (line)
+                print (NLP.get_classifier_probabilities(line))
+                print ("")
+
 # proc_review("negative.txt", "negReviews.txt")
 # proc_review("positive.txt", "posReviews.txt")
 
@@ -146,15 +152,16 @@ classifier = NLP.get_classifier(NLP.all_trg_data[:2800])
 # print (classifier.accuracy(positive_test))
 # print (classifier.accuracy(negative_test))
 
-print (NLP.get_classifier_probabilities("I purchased this for my daughter a bit before Christmas and she loves it.  It is a great item for the price and does what the bigger brand names does.  Thank you."))
-print (NLP.get_classifier_probabilities("This was excellent, very useful. Get one!"))
+# print (NLP.get_classifier_probabilities("I purchased this for my daughter a bit before Christmas and she loves it.  It is a great item for the price and does what the bigger brand names does.  Thank you."))
+# print (NLP.get_classifier_probabilities("This was excellent, very useful. Get one!"))
+#
+# print (NLP.get_classifier_probabilities("This is awful. Dont bother, piece of rubbish"))
+#
+# print (NLP.get_classifier_probabilities("No sure, maybe ok, could be better."))
+# print (NLP.get_classifier_probabilities("you must be joking, this is terrible."))
 
-print (NLP.get_classifier_probabilities("This is awful. Dont bother, piece of rubbish"))
-
-print (NLP.get_classifier_probabilities("No sure, maybe ok, could be better."))
-print (NLP.get_classifier_probabilities("you must be joking, this is terrible."))
-
-NLP.dump_results()
+NLP.get_sentiment_file_of_reviews("sandals-sat.txt")
+# NLP.dump_results()
 
 # Accuracy: 0.984
 
@@ -165,4 +172,4 @@ NLP.dump_results()
 #
 # NEGATIVE pos 39 neg 61  2000
 # POSITIVE pos 86 neg 14
-classifier.show_informative_features(10)
+# classifier.show_informative_features(10)
