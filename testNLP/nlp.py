@@ -21,7 +21,7 @@ class NLP:
     POSITIVE = "POSITIVE"
     NEGATIVE = "NEGATIVE"
 
-    def proc_review(fName, outName):
+    def proc_review(self, fName, outName):
         outfile = open(outName, "w")
 
         with open(fName, encoding = "ISO-8859-1") as f:
@@ -40,7 +40,7 @@ class NLP:
         outfile.close()
 
 
-    def fill_data():
+    def fill_data(self):
 
         with open("posReviews.txt", "r") as f:
             for line in f:
@@ -49,22 +49,15 @@ class NLP:
             for line in f:
                 NLP.negative.append((line, NLP.NEGATIVE))
 
-        global positive_test
-        positive_test = NLP.positive[:200]
+        NLP.positive_test = NLP.positive[:200]
+        NLP.positive_trg = NLP.positive[200:]
+        NLP.negative_test = NLP.negative[:200]
+        NLP.negative_trg = NLP.negative[200:]
 
-        global positive_trg
-        positive_trg = NLP.positive[200:]
-
-        global negative_test
-        negative_test = NLP.negative[:200]
-
-        global negative_trg
-        negative_trg = NLP.negative[200:]
-
-        global all_trg_data
+       # global all_trg_data
         # all_trg_data = positive_trg + negative_trg
         # shuffle(all_trg_data)
-        for words, sentiment in positive_trg + negative_trg:
+        for words, sentiment in NLP.positive_trg + NLP.negative_trg:
             filtered_words = [w.lower().strip('.').strip(',').strip(';').strip(';').strip(':').strip('"').strip('!').strip('?')
                               for w in words.split() if len(w) >=4]
             NLP.all_trg_data.append((filtered_words, sentiment))
@@ -89,7 +82,7 @@ class NLP:
 
 
 
-    def get_classifier_probabilities(text):
+    def get_classifier_probabilities(self, text):
         prob_dist = classifier.prob_classify(text)
         return prob_dist.max(), round(prob_dist.prob(NLP.POSITIVE), 2), round(prob_dist.prob(NLP.NEGATIVE), 2)
 
@@ -111,14 +104,14 @@ class NLP:
 
         neg = 0
         pos = 0
-        for (review, _) in positive_test:
+        for (review, _) in NLP.positive_test:
             if classifier.classify(review) == NLP.NEGATIVE:
                 neg = neg + 1
             else:
                 pos = pos + 1
 
             print(classifier.classify(review) + " pos " + str(pos) + " neg " + str(neg))
-    def get_classifier(trg_set):
+    def get_classifier(self, trg_set):
 
         if (os.path.exists('my_classifier.pickle')):
             clsfr = NaiveBayesClassifier
@@ -134,34 +127,36 @@ class NLP:
             return clsfr
 
 
-    def get_sentiment_file_of_reviews( fname):
+    def get_sentiment_file_of_reviews(self, fname):
         with open(fname, "r") as f:
             for line in f:
                 print (line)
-                print (NLP.get_classifier_probabilities(line))
+                print (self.get_classifier_probabilities( line))
                 print ("")
 
-# proc_review("negative.txt", "negReviews.txt")
-# proc_review("positive.txt", "posReviews.txt")
 
-NLP.fill_data()
+
+nlp = NLP()
+nlp.proc_review("negative.txt", "negReviews.txt")
+nlp.proc_review("positive.txt", "posReviews.txt")
+nlp.fill_data()
 
 # for (_, s) in all_trg_data[:100]:
 #     print (s)
-classifier = NLP.get_classifier(NLP.all_trg_data[:2800])
+classifier = nlp.get_classifier(nlp.all_trg_data[:2800])
 # print (classifier.accuracy(positive_test))
 # print (classifier.accuracy(negative_test))
 
-# print (NLP.get_classifier_probabilities("I purchased this for my daughter a bit before Christmas and she loves it.  It is a great item for the price and does what the bigger brand names does.  Thank you."))
-# print (NLP.get_classifier_probabilities("This was excellent, very useful. Get one!"))
+print (nlp.get_classifier_probabilities("I purchased this for my daughter a bit before Christmas and she loves it.  It is a great item for the price and does what the bigger brand names does.  Thank you."))
+# print (nlp.get_classifier_probabilities("This was excellent, very useful. Get one!"))
 #
-# print (NLP.get_classifier_probabilities("This is awful. Dont bother, piece of rubbish"))
+# print (nlp.get_classifier_probabilities("This is awful. Dont bother, piece of rubbish"))
 #
-# print (NLP.get_classifier_probabilities("No sure, maybe ok, could be better."))
-# print (NLP.get_classifier_probabilities("you must be joking, this is terrible."))
+# print (nlp.get_classifier_probabilities("No sure, maybe ok, could be better."))
+# print (nlp.get_classifier_probabilities("you must be joking, this is terrible."))
 
-NLP.get_sentiment_file_of_reviews("sandals-sat.txt")
-# NLP.dump_results()
+nlp.get_sentiment_file_of_reviews("sandals-sat.txt")
+# nlp.dump_results()
 
 # Accuracy: 0.984
 
