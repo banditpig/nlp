@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e157d456-60f4-48e9-8dcd-95337a0fb065" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/negative_test.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/negative_test_results.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/positive_test.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/positive_test_results.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sandals.csv.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sandals_results.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sentSumNLTK_results.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sentisum_data.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spacey.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nlp.py" afterPath="$PROJECT_DIR$/nlp.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sentences.py" afterPath="$PROJECT_DIR$/sentences.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -99,7 +87,7 @@
       <file leaf-file-name="spacey.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spacey.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="230">
               <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
               <folding />
             </state>
@@ -231,6 +219,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -565,7 +558,21 @@
       <option name="project" value="LOCAL" />
       <updated>1491988096824</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="latest">
+      <created>1492097026499</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1492097026499</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added">
+      <created>1492097201591</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1492097201591</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -601,7 +608,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="latest" />
-    <option name="LAST_COMMIT_MESSAGE" value="latest" />
+    <MESSAGE value="added" />
+    <option name="LAST_COMMIT_MESSAGE" value="added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -978,18 +986,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sentisum_data.json">
+    <entry file="file://$PROJECT_DIR$/spacey.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="211" column="82" lean-forward="false" selection-start-line="211" selection-start-column="49" selection-end-line="211" selection-end-column="82" />
+        <state relative-caret-position="230">
+          <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spacey.py">
+    <entry file="file://$PROJECT_DIR$/sentisum_data.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+        <state relative-caret-position="232">
+          <caret line="211" column="82" lean-forward="false" selection-start-line="211" selection-start-column="49" selection-end-line="211" selection-end-column="82" />
           <folding />
         </state>
       </provider>
