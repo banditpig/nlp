@@ -1,0 +1,145 @@
+---- Review text. ----
+Exactly what I expected.
+---- sentences and scores...
+Exactly what I expected. -> POSITIVE + 1.0 - 0.0
+=======================
+
+---- Review text. ----
+Excellent
+---- sentences and scores...
+Excellent -> POSITIVE + 1.0 - 0.0
+=======================
+
+---- Review text. ----
+Excellent
+---- sentences and scores...
+Excellent -> POSITIVE + 1.0 - 0.0
+=======================
+
+---- Review text. ----
+Great product! Love it! Would recommend.
+---- sentences and scores...
+Great product! -> POSITIVE + 0.99 - 0.01
+Love it! -> POSITIVE + 0.99 - 0.01
+Would recommend. -> POSITIVE + 0.99 - 0.01
+=======================
+
+---- Review text. ----
+Good
+---- sentences and scores...
+Good -> POSITIVE + 0.98 - 0.02
+=======================
+
+---- Review text. ----
+Excellent quality but why the shirt has to be that long?
+---- sentences and scores...
+Excellent quality but why the shirt has to be that long? -> POSITIVE + 1.0 - 0.0
+=======================
+
+---- Review text. ----
+Product as expected
+---- sentences and scores...
+Product as expected -> POSITIVE + 0.94 - 0.06
+=======================
+
+---- Review text. ----
+Lovely and comfy, neat look
+---- sentences and scores...
+Lovely and comfy, neat look -> POSITIVE + 0.98 - 0.02
+=======================
+
+---- Review text. ----
+Really nice shirt, probably going to take advantage of the 4 for £100 deal very soon to get four more!
+---- sentences and scores...
+Really nice shirt, probably going to take advantage of the 4 for £100 deal very soon to get four more! -> POSITIVE + 0.99 - 0.01
+=======================
+
+---- Review text. ----
+Poor
+---- sentences and scores...
+Poor -> POSITIVE + 0.82 - 0.18
+=======================
+
+---- Review text. ----
+No issues absolutely. Good product, great price when the sale was on
+---- sentences and scores...
+No issues absolutely. -> POSITIVE + 1.0 - 0.0
+Good product, great price when the sale was on -> POSITIVE + 0.99 - 0.01
+=======================
+
+---- Review text. ----
+Average
+---- sentences and scores...
+Average -> POSITIVE + 0.94 - 0.06
+=======================
+
+---- Review text. ----
+No problems
+---- sentences and scores...
+No problems -> POSITIVE + 0.98 - 0.02
+=======================
+
+---- Review text. ----
+Great quality, fit and price.
+---- sentences and scores...
+Great quality, fit and price. -> POSITIVE + 1.0 - 0.0
+=======================
+
+---- Review text. ----
+Great product delivered quickly with great packaging.
+---- sentences and scores...
+Great product delivered quickly with great packaging. -> POSITIVE + 0.99 - 0.01
+=======================
+
+---- Review text. ----
+Great fitting shirt will look to order more
+---- sentences and scores...
+Great fitting shirt will look to order more -> POSITIVE + 1.0 - 0.0
+=======================
+
+---- Review text. ----
+Good fit and nice comfortable material.
+---- sentences and scores...
+Good fit and nice comfortable material. -> POSITIVE + 1.0 - 0.0
+=======================
+
+---- Review text. ----
+Can you make a bigger range for people with 38 inch arm length.The choice is very poor
+---- sentences and scores...
+Can you make a bigger range for people with 38 inch arm length.The choice is very poor -> POSITIVE + 1.0 - 0.0
+=======================
+
+---- Review text. ----
+Good quality as always
+---- sentences and scores...
+Good quality as always -> POSITIVE + 0.99 - 0.01
+=======================
+
+---- Review text. ----
+Good quality shirt, fits well. Should have tried it in store cause I think it shines a bit too much. (Hard to tell by the given description, I think this is the one with the regular cuffs)
+---- sentences and scores...
+Good quality shirt, fits well. -> POSITIVE + 1.0 - 0.0
+Should have tried it in store cause I think it shines a bit too much. -> POSITIVE + 0.58 - 0.42
+(Hard to tell by the given description, I think this is the one with the regular cuffs) -> POSITIVE + 0.97 - 0.03
+=======================
+
+---- Review text. ----
+Beautiful shirt, thick but not hot.
+---- sentences and scores...
+Beautiful shirt, thick but not hot. -> POSITIVE + 1.0 - 0.0
+=======================
+
+---- Review text. ----
+Great fit glad I found out about slim fit. I'm a little porky and regular shirt are like a tent . The only disappointing thing is the shortage of short sleeved shirts in your range . A couple of colours and styles ,I think would a winner
+---- sentences and scores...
+Great fit glad I found out about slim fit. -> POSITIVE + 1.0 - 0.0
+I'm a little porky and regular shirt are like a tent . -> POSITIVE + 1.0 - 0.0
+The only disappointing thing is the shortage of short sleeved shirts in your range . -> POSITIVE + 0.79 - 0.21
+A couple of colours and styles ,I think would a winner -> POSITIVE + 0.99 - 0.01
+=======================
+
+---- Review text. ----
+Good quality shirts at a fair price.
+---- sentences and scores...
+Good quality shirts at a fair price. -> POSITIVE + 0.99 - 0.01
+=======================

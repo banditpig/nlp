@@ -25,7 +25,8 @@ def get_nouns(text):
 
     return nouns
 
-text = "The recording calls into question evidence given in 2012 to the Treasury select committee by former Barclays boss Bob Diamond and Paul Tucker, the man who went on to become the deputy governor of the Bank of England."
+# text = "The recording calls into question evidence given in 2012 to the Treasury select committee by former Barclays boss Bob Diamond and Paul Tucker, the man who went on to become the deputy governor of the Bank of England."
+text = "Etim went to the University of Surrey"
 
 tree = entities(text)
 tree.pprint()

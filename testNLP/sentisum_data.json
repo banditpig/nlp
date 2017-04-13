@@ -1,0 +1,905 @@
+[
+   {
+      "isoDateTime":"2016-01-14T10:59:22.000Z",
+      "commentText":"Exactly what I expected.",
+      "externalId":"5720c8e320afa0463ab3a2ed",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Exactly what I expected."
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-09-14T07:31:46.875Z",
+      "commentText":"Excellent",
+      "externalId":"57d8fce2498ecd5e4aba8c45",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-07-01T13:22:18.767Z",
+      "commentText":"Excellent",
+      "externalId":"57766e8a498e193a1b4e9743",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-11-11T12:44:35.099Z",
+      "commentText":"Excellent",
+      "externalId":"5825bd33498e442fb8f93de8",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-02-23T07:28:06.000Z",
+      "commentText":"Excellent",
+      "externalId":"5720c03020afa0463aaeac77",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2017-01-25T07:50:23.484Z",
+      "commentText":"Great product! Love it! Would recommend.",
+      "externalId":"588858bf498ec2182c2b1ef5",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "product",
+         "love"
+      ],
+      "opnionPhrases":[
+         " Great product"
+      ],
+      "sentences":{
+         "3":[
+            "Love it!",
+            "Would recommend.",
+            "Great product!"
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2016-01-13T22:12:57.000Z",
+      "commentText":"Excellent",
+      "externalId":"5720c52a20afa0463ab1a938",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-02-03T08:42:19.000Z",
+      "commentText":"Excellent",
+      "externalId":"5720cb6620afa0463ab4cbd4",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-05-07T09:41:59.942Z",
+      "commentText":"Good",
+      "externalId":"572db867498ee99ed91bb982",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Good"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-01-13T10:15:07.000Z",
+      "commentText":"Excellent quality but why the shirt has to be that long?",
+      "externalId":"5720c76c20afa0463ab2f226",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "quality",
+         "shirt"
+      ],
+      "opnionPhrases":[
+         " Excellent quality",
+         " long"
+      ],
+      "sentences":{
+         "3":[
+            "Excellent quality but why the shirt has to be that long?"
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2016-01-26T09:50:33.000Z",
+      "commentText":"Product as expected",
+      "externalId":"5720c5ea20afa0463ab21742",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "product"
+      ],
+      "sentences":{
+         "1":[
+            "Product as expected"
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2017-02-02T08:09:17.340Z",
+      "commentText":"Lovely and comfy, neat look",
+      "externalId":"5892e92d498e5a6398420a68",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "look"
+      ],
+      "opnionPhrases":[
+         " Lovely",
+         " comfy",
+         " neat look"
+      ],
+      "sentences":{
+         "3":[
+            "Lovely and comfy, neat look"
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2016-08-19T14:16:14.129Z",
+      "commentText":"Really nice shirt, probably going to take advantage of the 4 for £100 deal very soon to get four more!",
+      "externalId":"57b714ae498eb9e66d1951a5",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "shirt",
+         "advantage",
+         "deal"
+      ],
+      "opnionPhrases":[
+         " Really nice",
+         " probably going",
+         " more"
+      ],
+      "sentences":{
+         "4":[
+            "Really nice shirt, probably going to take advantage of the 4 for £100 deal very soon to get four more!"
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2016-08-18T09:40:54.600Z",
+      "commentText":"Poor",
+      "externalId":"57b582a6498efa9db7ca3505",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "poor"
+      ],
+      "sentences":{
+         "1":[
+            "Poor"
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2017-02-03T12:07:34.941Z",
+      "commentText":"No issues absolutely. Good product, great price when the sale was on",
+      "externalId":"58947286498e5a639855abba",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "issues",
+         "product",
+         "price",
+         "sale"
+      ],
+      "opnionPhrases":[
+         " Good product",
+         " great price"
+      ],
+      "sentences":{
+         "3":[
+            "No issues absolutely.",
+            "Good product, great price when the sale was on"
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2016-04-04T20:06:30.000Z",
+      "commentText":"Excellent",
+      "externalId":"5720cb1e20afa0463ab4b05e",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-09-06T11:53:31.763Z",
+      "commentText":"Excellent",
+      "externalId":"57ceae3b498e837ca7b168bf",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-01-13T07:56:16.000Z",
+      "commentText":"Good",
+      "externalId":"5720c83d20afa0463ab35459",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Good"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-04-23T07:17:10.000Z",
+      "commentText":"Excellent",
+      "externalId":"5720c93e20afa0463ab3d126",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-12-11T12:31:26.523Z",
+      "commentText":"Average",
+      "externalId":"584d471e498e014aaaa3a6c5",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "2":[
+            "Average"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-03-02T09:01:30.000Z",
+      "commentText":"Excellent",
+      "externalId":"5720c4d220afa0463ab1768a",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-04-19T10:44:43.000Z",
+      "commentText":"Excellent",
+      "externalId":"5720c5e020afa0463ab210f3",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-07-02T08:37:29.375Z",
+      "commentText":"Excellent",
+      "externalId":"57777d49498e193a1b5e3bfa",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-11-15T20:10:35.921Z",
+      "commentText":"Excellent",
+      "externalId":"582b6bbb498e8bce6e4fa783",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-02-06T22:45:30.000Z",
+      "commentText":"Excellent",
+      "externalId":"5720cc0320afa0463ab5094f",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-02-12T12:38:50.000Z",
+      "commentText":"No problems",
+      "externalId":"5720ce9a20afa0463ab60e9c",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "problems"
+      ],
+      "sentences":{
+         "3":[
+            "No problems"
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2016-05-26T05:43:41.370Z",
+      "commentText":"Excellent",
+      "externalId":"57468d0d498e38444b34a85f",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-06-03T07:22:30.173Z",
+      "commentText":"Excellent",
+      "externalId":"57513036498e3ed4053aac3e",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-11-14T07:49:41.919Z",
+      "commentText":"Great quality, fit and price.",
+      "externalId":"58296c95498e58aee167a43f",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "quality",
+         "fit",
+         "price"
+      ],
+      "opnionPhrases":[
+         " Great quality"
+      ],
+      "sentences":{
+         "3":[
+            "Great quality, fit and price."
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2016-05-12T08:30:16.415Z",
+      "commentText":"Excellent",
+      "externalId":"57343f18498edc149d5bd8c6",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2017-02-20T05:48:04.067Z",
+      "commentText":"Great product delivered quickly with great packaging.",
+      "externalId":"58aa8314498ee17de4c18a11",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "product",
+         "packaging"
+      ],
+      "opnionPhrases":[
+         " Great product",
+         " great packaging"
+      ],
+      "sentences":{
+         "3":[
+            "Great product delivered quickly with great packaging."
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2016-09-20T06:04:52.514Z",
+      "commentText":"Good",
+      "externalId":"57e0d184498e5ab89571a7d9",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Good"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-02-23T07:37:07.000Z",
+      "commentText":"Good",
+      "externalId":"5720cc3320afa0463ab51cf7",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Good"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-05-03T11:34:27.046Z",
+      "commentText":"Excellent",
+      "externalId":"57288cc3498e90eef00e41f0",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-03-15T11:09:42.000Z",
+      "commentText":"Great fitting shirt will look to order more",
+      "externalId":"5720c1b320afa0463aaf9edb",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "shirt"
+      ],
+      "opnionPhrases":[
+         " Great fitting shirt"
+      ],
+      "sentences":{
+         "3":[
+            "Great fitting shirt will look to order more"
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2016-05-31T10:07:13.240Z",
+      "commentText":"Good fit and nice comfortable material.",
+      "externalId":"574d6251498eedcca2bbdb80",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "fit",
+         "material"
+      ],
+      "opnionPhrases":[
+         " Good fit",
+         " nice comfortable material"
+      ],
+      "sentences":{
+         "3":[
+            "Good fit and nice comfortable material."
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2015-12-13T20:47:03.000Z",
+      "commentText":"Can you make a bigger range for people with 38 inch arm length.The choice is very poor",
+      "externalId":"5720cf6320afa0463ab65a4c",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "range",
+         "people",
+         "inch arm length",
+         "choice"
+      ],
+      "opnionPhrases":[
+         " bigger range",
+         " very poor"
+      ],
+      "sentences":{
+         "1":[
+            "The choice is very poor"
+         ],
+         "2":[
+            "Can you make a bigger range for people with 38 inch arm length."
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2016-01-26T21:26:58.000Z",
+      "commentText":"Good quality as always",
+      "externalId":"5720c4d520afa0463ab17846",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "quality"
+      ],
+      "opnionPhrases":[
+         " Good quality"
+      ],
+      "sentences":{
+         "3":[
+            "Good quality as always"
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2016-07-11T08:45:34.337Z",
+      "commentText":"Excellent",
+      "externalId":"57835cae498e685a68fc6218",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-03-07T10:27:09.000Z",
+      "commentText":"Good quality shirt, fits well. Should have tried it in store cause I think it shines a bit too much. (Hard to tell by the given description, I think this is the one with the regular cuffs)",
+      "externalId":"5720c54e20afa0463ab1bdde",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "quality shirt",
+         "store cause",
+         "bit",
+         "description",
+         "cuffs"
+      ],
+      "opnionPhrases":[
+         " Good quality shirt",
+         " Hard",
+         " regular cuffs"
+      ],
+      "sentences":{
+         "1":[
+            "(Hard to tell by the given description, I think this is the one with the regular cuffs)"
+         ],
+         "2":[
+            "Should have tried it in store cause I think it shines a bit too much."
+         ],
+         "3":[
+            "Good quality shirt, fits well."
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2016-06-03T10:28:21.794Z",
+      "commentText":"Beautiful shirt, thick but not hot.",
+      "externalId":"57515bc5498e3ed40541eb31",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "shirt"
+      ],
+      "opnionPhrases":[
+         " Beautiful shirt",
+         " thick",
+         " not hot"
+      ],
+      "sentences":{
+         "2":[
+            "Beautiful shirt, thick but not hot."
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2016-12-13T10:16:09.085Z",
+      "commentText":"Excellent",
+      "externalId":"584fca69498ed7863ccdd5a1",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-05-06T13:23:04.233Z",
+      "commentText":"Excellent",
+      "externalId":"572c9ab8498e017fc2941752",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-10-28T08:49:48.922Z",
+      "commentText":"Excellent",
+      "externalId":"5813112c498e5b0082ee0ef0",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-11-26T15:04:18.307Z",
+      "commentText":"Excellent",
+      "externalId":"5839a472498ebb8c995e7cfc",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2016-01-16T17:15:12.000Z",
+      "commentText":"Great fit glad I found out about slim fit. I'm a little porky and regular shirt are like a tent . The only disappointing thing is the shortage of short sleeved shirts in your range . A couple of colours and styles ,I think would a winner",
+      "externalId":"5720c85a20afa0463ab363d4",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "fit",
+         "fit",
+         "porky",
+         "shirt",
+         "tent",
+         "thing",
+         "shortage",
+         "shirts",
+         "range",
+         "couple",
+         "colours",
+         "styles",
+         "winner"
+      ],
+      "opnionPhrases":[
+         " Great fit",
+         " slim fit",
+         " little porky",
+         " regular shirt",
+         " only disappointing",
+         " short sleeved shirts"
+      ],
+      "sentences":{
+         "1":[
+            "The only disappointing thing is the shortage of short sleeved shirts in your range ."
+         ],
+         "2":[
+            "A couple of colours and styles ,I think would a winner"
+         ],
+         "3":[
+            "Great fit glad I found out about slim fit.",
+            "I'm a little porky and regular shirt are like a tent ."
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2016-08-27T07:30:05.986Z",
+      "commentText":"Excellent",
+      "externalId":"57c1417d498e673efd66a0c6",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   },
+   {
+      "isoDateTime":"2017-01-20T07:35:10.223Z",
+      "commentText":"Good quality shirts at a fair price.",
+      "externalId":"5881bdae498e45a6cb537944",
+      "product":"26121",
+      "client":"tm-lewin",
+      "features":[
+         "quality shirts",
+         "price"
+      ],
+      "opnionPhrases":[
+         " Good quality shirts",
+         " fair price"
+      ],
+      "sentences":{
+         "3":[
+            "Good quality shirts at a fair price."
+         ]
+      },
+      "categories":[
+         "other"
+      ]
+   },
+   {
+      "isoDateTime":"2016-09-20T19:13:25.858Z",
+      "commentText":"Excellent",
+      "externalId":"57e18a55498e97a60db5df10",
+      "product":"26121",
+      "client":"tm-lewin",
+      "sentences":{
+         "3":[
+            "Excellent"
+         ]
+      },
+      "categories":[
+
+      ]
+   }
+]
