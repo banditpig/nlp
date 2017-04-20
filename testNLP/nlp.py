@@ -2,12 +2,68 @@ import pickle
 import os.path
 import nltk
 import csv
+import jsonpickle
+import json
 
+import pymongo
 from textblob.classifiers import NaiveBayesClassifier
 from textblob import TextBlob
 from random import shuffle
 
 from nltk.tokenize import sent_tokenize
+from pymongo import MongoClient
+from pymongo.son_manipulator import SONManipulator
+import collections  # From Python standard library.
+import bson
+from bson.codec_options import CodecOptions
+from bson import Binary, Code, ObjectId
+from bson.json_util import dumps
+
+
+def jdefault(o):
+    return o.__dict__
+
+
+
+class Sentence_Result((object)):
+    def __init__(self):
+
+        self.text = ""
+        self.sentiment = 0.0
+        self.features= []
+
+
+
+
+class Result(object):
+    def __init__(self):
+        self.NLP_SERVICE = "NLTK"
+        self.id = ""
+        self.merchant = ""
+        self.text = ""
+        self.sentiment = 0.0
+        self.features = []
+        self.sentences = []
+        self._id = ""
+#
+# res = Result()
+# res.review = "hello"
+# res.review_score = 0.8
+# res.features = ["one", "two", "three"]
+# sc1 = Sentence_Score()
+# sc1.sentence = "sentence one"
+# sc1.score = 0.1
+#
+# sc2 = Sentence_Score()
+# sc2.sentence = "another one"
+# sc2.score = 0.1
+#
+# res.feature_sentences = {'one' : ["dghsdds one dsdsd", "fff one one fsf"]}
+# res.feature_sentences['two'] = ["dghsdds two dsdsd", "fff two two fsf"]
+# # [sc1, sc2]
+# # res.feature_sentences = [("one", [sc1, sc2])]
+#
+# print (json.dumps(res, indent=4, default=jdefault))
 
 class NLP:
     # https://www.youtube.com/watch?v=IMKweOTFjXw
@@ -30,19 +86,82 @@ class NLP:
 
         with open(fName, encoding = "ISO-8859-1") as f:
             for line in f:
-                if (line.startswith("<review_text>")):
-                    done = False
-                    review = ""
-                    while (done == False):
-                        nextLine = next(f).strip('\n\r')
-                        if (nextLine.startswith(("</review_text>"))):
-                            done = True
-                            outfile.writelines(review.strip('\n\r'))
-                            outfile.writelines('\n')
-                        else:
-                            review = review + nextLine + " "
+                if ("\"id\":" in  line) or ("id:" in  line):
+                    id = line.split(":")[1]
+                    #     skip one line until find review
+
+
+                    reviewLine = next(f)
+                    while "\"review\":" not in reviewLine:
+                        reviewLine = next(f)
+
+                    review = reviewLine.split(":")[1]
+                    outfile.writelines(id.replace('\\n', ' ').replace('"','').strip('\n\r').strip(',').strip() + "," + review.strip().replace('\\n', ' ').replace('"','').strip('\n\r').strip(','))
+                    outfile.writelines('\n')
+
+
         outfile.close()
 
+
+    def review_lines(self, fname):
+        list_lines = []
+        with open(fname, "r") as f:
+            for line in f:
+                list_lines.append(line)
+
+        return list_lines
+
+    def process_reviews_file(self, fname, merchant, outfile):
+
+
+        lines = self.review_lines(fname)
+        for fullLine  in lines[:10]:
+
+            [id, line] = fullLine.split(',', 1)
+            line = line.replace("\"", "").replace("Â£"," ").replace("âºâºâºâº"," ")
+            line = line.lower()
+            res = Result()
+            res.text = line
+            res.id = id
+            (clas, pscore, nscore) = self.get_classifier_probabilities(line)
+            res.sentiment = str(pscore)
+            res.merchant = merchant
+
+            noun_phrases = self.get_noun_phrases(line)
+            if len(noun_phrases) == 0:
+                noun_phrases = self.get_nouns(line)
+
+            res.features = noun_phrases
+
+            # eac h line is a review and could be many sentences
+            sentences = self.get_sentences(line)
+
+
+            sentence_results = []
+            for sentence in sentences:
+                sentence_result = Sentence_Result()
+                sentence_result.text = sentence
+                (clas, pscore, nscore) = self.get_classifier_probabilities(sentence)
+                the_score = str(pscore)
+                sentence_result.sentiment = the_score
+                # get features
+                sentence_features = []
+
+                for feature in noun_phrases:
+                    if feature in sentence:
+                        sentence_features.append(feature)
+
+
+                sentence_result.features = sentence_features
+                sentence_results.append(sentence_result)
+
+            res.sentences = sentence_results
+
+            res._id = str(ObjectId())
+            doc_str = json.dumps(res, indent=4, default=jdefault) #
+            print(doc_str)
+
+            outfile.write(doc_str)
 
     def fill_data(self):
 
@@ -79,14 +198,14 @@ class NLP:
             NLP.all_trg_data.append((filtered_words, sentiment))
         shuffle(NLP.all_trg_data)
 
-    def get_just_words(data):
+    def get_just_words(self, data):
         all_words = []
         for(words, sentiment) in data:
             all_words += words
         return all_words;
 
 
-    def extract_features(src_doc):
+    def extract_features(self, src_doc):
         document_words = set(src_doc)
         features = {}
 
@@ -159,6 +278,33 @@ class NLP:
 
             out_file.close()
 
+    def get_nouns(self, text):
+        is_noun = lambda pos: pos[:2] == 'NN'
+        # do the nlp stuff
+        tokenized = nltk.word_tokenize(text)
+        nouns = [word for (word, pos) in nltk.pos_tag(tokenized) if is_noun(pos)]
+
+        return nouns
+
+    def get_noun_phrases(selfself, text):
+        blob = TextBlob(text)
+        noun_phrases = blob.noun_phrases
+
+        return noun_phrases
+
+    def sentences_with_noun(self, noun, sentences): #feature is really a noun
+
+        unique_sentences = []
+        for sentence in sentences:
+            if noun in sentence:
+                if sentence not in unique_sentences:
+                    unique_sentences.append(sentence)
+
+        # print(unique_sentences)
+        # print("=======================")
+        return unique_sentences
+
+
     def get_sentences(self, text):
         return sent_tokenize(text)
 
@@ -175,7 +321,34 @@ class NLP:
         print ("")
 
 
+client = MongoClient()
+db = client['feefo']
+results_collection = db['results']
+#
+# res = Result()
+# res._id = str(ObjectId())
+# res.features = ["dd", "aa"]
+# res.sentences = ["dsddddsdsdsd"]
+# doc_str = dumps(res, indent=4, default=jdefault)  #
+# print(doc_str)
+# # results_collection.insert_one(res)
+# results_collection.save(dict(res))
+
 nlp = NLP()
+
+# text = ("Great fit glad I found out about slim fit. I'm a little porky and regular shirt are like a tent . The only disappointing thing is the shortage of short sleeved shirts in your range . A couple of colours and styles ,I think would a winner")
+# text = " ".join(sentisumText)
+# text = "Love these shirts, great fit and typical TM Lewin high quality"
+#
+# sentences = nlp.get_sentences(text)
+# nouns = nlp.get_nouns(text)
+# noun_phrases = nlp.get_noun_phrases(text)
+# if len(noun_phrases) == 0:
+#     noun_phrases = nlp.get_nouns(text)
+# for noun in noun_phrases:
+#     sens = nlp.sentences_with_noun(noun,sentences)
+
+
 # nlp.proc_review("negative.txt", "negReviews.txt")
 # nlp.proc_review("positive.txt", "posReviews.txt")
 nlp.fill_data()
@@ -183,6 +356,17 @@ nlp.fill_data()
 # for (_, s) in all_trg_data[:100]:
 #     print (s)
 classifier = nlp.get_classifier(nlp.all_trg_data[:2800])
+
+out_file = open("results.json", 'w')
+all_data = [("Axa.json", "axa.txt","Axa"), ("sandals.json", "sandals.txt", "Sandals"), ("tmlewin.json", "tmlewin.txt", "TM Lewin")]
+for (json_file, reviews_out_file, merchant_name) in all_data:
+  nlp.proc_review(json_file, reviews_out_file)
+  nlp.process_reviews_file( reviews_out_file, merchant_name, out_file)
+
+out_file.close()
+print ("done")
+
+# classifier.show_informative_features(20)
 
 # print (classifier.accuracy(NLP.positive_test))
 # print (classifier.accuracy(NLP.negative_test))
@@ -213,29 +397,7 @@ classifier = nlp.get_classifier(nlp.all_trg_data[:2800])
 # POSITIVE pos 86 neg 14
 # classifier.show_informative_features(10)
 
-sentisumText = ["Exactly what I expected.",
-"Excellent",
-"Excellent",
-"Great product! Love it! Would recommend.",
-"Good",
-"Excellent quality but why the shirt has to be that long?",
-"Product as expected",
-"Lovely and comfy, neat look",
-"Really nice shirt, probably going to take advantage of the 4 for £100 deal very soon to get four more!",
-"Poor",
-"No issues absolutely. Good product, great price when the sale was on",
-"Average",
-"No problems",
-"Great quality, fit and price.",
-"Great product delivered quickly with great packaging.",
-"Great fitting shirt will look to order more",
-"Good fit and nice comfortable material.",
-"Can you make a bigger range for people with 38 inch arm length.The choice is very poor",
-"Good quality as always",
-"Good quality shirt, fits well. Should have tried it in store cause I think it shines a bit too much. (Hard to tell by the given description, I think this is the one with the regular cuffs)",
-"Beautiful shirt, thick but not hot.",
-"Great fit glad I found out about slim fit. I'm a little porky and regular shirt are like a tent . The only disappointing thing is the shortage of short sleeved shirts in your range . A couple of colours and styles ,I think would a winner",
-"Good quality shirts at a fair price."]
 
-for txt in sentisumText:
-    nlp.top_sentences(txt)
+#
+# for txt in sentisumText:
+#     nlp.top_sentences(txt)
